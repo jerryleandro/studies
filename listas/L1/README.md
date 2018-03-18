@@ -1,4 +1,4 @@
-# Lista de exercícios 1
+# Lista de exercícios - 1
 
 Expressões aritméticas, variáveis, entrada e saída de dados
 
