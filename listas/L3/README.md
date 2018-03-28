@@ -9,7 +9,7 @@
 4. Implemente um programa que recebe três valores in teiros referentes a uma data e a imprime com o mês por extenso. Exemplo de entrada: “10 5 2013”.  Exemplo de saída: “10 de Maio de 2013”.  
 
 5. Implemente  um  programa  que  recebe  o  consumo  de  ág ua  de  uma residência (em metros cúbicos) e calcula o valor da conta. O preço do metro cúbico de água é dado pela tabela abaixo:  
-<center>
+<p align="center">
   <table>
    <tr>
      <th>Consumo (m³)</th>
@@ -24,7 +24,7 @@
      <td>R$ 11,00</td>
    </tr>
   </table>
-</center>
+</p>
 
 
 6. Implemente um programa que recebe três números (a , b e c) e determina se o terceiro número (c) está no intervalo fechado dos outros dois.   
@@ -40,7 +40,7 @@
 10. Implemente um programa que calcula as raízes de uma equação do segundo grau, do tipo ax²+bx + c = 0. O programa deve pedir que o usuário forneça os coeficientes a, b, e c, que podem ser números reais, e então calcular e imprimir o número correto de raízes distintas. Lembre-se que a equação pode ter 2 raízes, 1 raiz, ou nenhuma raiz (neste caso o programa deve emitir uma mensagem indicando a ausência de raízes).  
 
 11. Implemente um programa que calcule o Índice de Massa Corporal (IMC) de uma pessoa e indique sua classificação de peso. A relação entre IMC e classificação é dado na tabela abaixo:
-<center>
+<p align="center">
   <table>
    <tr>
      <th>IMC</th>
@@ -63,12 +63,12 @@
      <td>Obesidade</td>
    </tr>
   </table>
-</center>
+</p>
 
 
 12. Sabendo que 1 de janeiro de 2013 foi uma terça-feira, escreva um programa que receba o número do dia do ano e diga em qual dia da semana cai esse dia no ano de 2013. Se o usuário inserir um número maior que 365 apresentar uma mensagem de que o ano de 2013 tem apenas 365 dias. Exemplos de entrada e saída:  
 
-<center>
+<p align="center">
   <table>
    <tr>
      <th>Entrada (dia do ano)</th>
@@ -95,7 +95,7 @@
      <td>Sexta-feira</td>
    </tr>
   </table>
-</center>
+</p>
 
 
 13. Implemente um programa que :
