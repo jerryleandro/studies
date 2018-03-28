@@ -14,7 +14,7 @@ int main ()
   cout << "Digite os centavos: ";
   cin >> centavos;
 
-  if(reais >0 || centavos>0)
+  while(reais >0 || centavos>0)
   {
     //Cálculo para a parte das cédulas
     if(reais>=100)
@@ -74,33 +74,28 @@ int main ()
       m005 = (int) centavos/5;
       centavos = centavos - (5*m005);
     }
-    else if (centavos>=0.01)
+    else if (centavos>=1)
     {
-      m001 = centavos/0.01;
-      centavos = centavos - (0.1*m001);
+      m001 = centavos/1;
+      centavos = centavos - (1*m001);
     }
-
-    //Imprimindo o resultado
-    cout << c100 << " cédula(s) de R$100 \n";
-    cout << c50 << " cédula(s) de R$50 \n";
-    cout << c20 << " cédula(s) de R$20 \n";
-    cout << c10 << " cédula(s) de R$10 \n";
-    cout << c5 << " cédula(s) de R$5 \n";
-    cout << c2 << " cédula(s) de R$2 \n";
-    cout << "\n";
-    cout << m1 <<  " moeda(s) de R$1 \n" ;
-    cout << m05 <<  " moeda(s) de R$0.50 \n" ;
-    cout << m025 <<  " moeda(s) de R$0.25 \n" ;
-    cout << m01 <<  " moeda(s) de R$0.10 \n" ;
-    cout << m005 <<  " moeda(s) de R$0.05 \n" ;
-    cout << m001 <<  " moeda(s) de R$0.01 \n" ;
-    cout << "\n";
-
   }
-  else
-  {
-    cout << "o valor é inválido";
-  }
+
+  //Imprimindo o resultado
+  cout << c100 << " cédula(s) de R$100 \n";
+  cout << c50 << " cédula(s) de R$50 \n";
+  cout << c20 << " cédula(s) de R$20 \n";
+  cout << c10 << " cédula(s) de R$10 \n";
+  cout << c5 << " cédula(s) de R$5 \n";
+  cout << c2 << " cédula(s) de R$2 \n";
+  cout << "\n";
+  cout << m1 <<  " moeda(s) de R$1 \n" ;
+  cout << m05 <<  " moeda(s) de R$0.50 \n" ;
+  cout << m025 <<  " moeda(s) de R$0.25 \n" ;
+  cout << m01 <<  " moeda(s) de R$0.10 \n" ;
+  cout << m005 <<  " moeda(s) de R$0.05 \n" ;
+  cout << m001 <<  " moeda(s) de R$0.01 \n" ;
+  cout << "\n";
 
   return 0;
 }
