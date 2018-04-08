@@ -24,16 +24,20 @@ equilátero (três lados iguais), isósceles (dois lados iguais) ou escaleno (tr
 Considere que para constituir um triângulo, cada um dos lados tem que ser menor do que a soma dos
 outros dois.
 
+```
     Exemplos:
     6 3 3: Numeros nao formam triangulo
     2 2 2: Numeros formam triangulo equilatero
     5 10 9: Numeros formam triangulo escaleno
     6 6 9: Numeros formam triangulo isósceles
-
+```
 6 . Implemente um programa que recebe como entrada um caractere e informa se ele é uma vogal,
 uma consoante ou um símbolo qualquer. Assuma que as letras digitadas serão sempre minúsculas.
+
+```
   Exemplos:
   a e uma vogal
   f e uma consoante
   6 e um simbolo qualquer
   # e um simbolo qualquer
+  ```
