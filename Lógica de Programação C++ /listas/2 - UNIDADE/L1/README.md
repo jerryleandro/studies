@@ -15,12 +15,15 @@ números, o programa calcule e imprima o quadrado de N números, em que N é
 um número inteiro positivo dado pelo usuário.
 
 5. Implemente um programa que recebe um número inteiro N entre 1 e 9 e escreve
-a tabuada desse número no padrão do exemplo a seguir. Para N = 4:
+a tabuada desse número no padrão do exemplo a seguir.
+```
+ Para N = 4:
 4 x 1 = 4
 4 x 2 = 8
 4 x 3 = 12
 .
 4 x 9 = 36
+```
 
 6. Implemente um programa que recebe um valor inteiro positivo U. Em
 seguida o programa deve escrever os termos da sequência abaixo,
@@ -72,9 +75,11 @@ vitória rende 3 pontos; um empate 1, ponto; e uma derrota, 0 pontos.
     **Saída:** O total de pontos que o time fez.
 
 **Exemplo:**
+```
 Entrada  Saída:
 4          7
 3          1
 1          3
 0          0
 2          0
+```
