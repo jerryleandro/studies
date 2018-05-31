@@ -8,7 +8,7 @@ int main ()
   int numeros[12];
 
   //b
-  numeros[1] =  108;
+  numeros[1] = 108;
   numeros[3] =108;
   numeros[10] = 108;
 
