@@ -10,4 +10,4 @@ Mover todos os discos para o pino da direita.
 
 # Regras 
 
-Movendo os números de acordo com as coordenadas inseridas, você deve mover um disco de cada vez, sendo que um disco maior nunca pode ficar em cima de um disco menor.
+Movendo os números de acordo com as coordenadas inseridas, você deve mover um número de cada vez, sendo que um número maior nunca pode ficar em cima de um número menor.
