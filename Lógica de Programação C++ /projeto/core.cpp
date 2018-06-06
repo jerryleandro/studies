@@ -9,9 +9,21 @@ int main ()
 {
     int escolha = menu();
 
-    if(escolha ==2)
+    if (escolha==1)
+    {
+        //chamar função do jogo aqui
+    }
+    else  if(escolha ==2)
     {
         instrucoes();
+    }
+    else if (escolha ==3)
+    {
+        exit(0);
+    }
+    else
+    {
+        main();
     }
     return 0;
 }
@@ -22,10 +34,11 @@ int boasvindas()
     return 0;
 }
 int menu()
-{
+{    
+    system("clear");
     int escolha = 0;
     boasvindas();
-    cout << "\n Selecione uma opção para jogar:"; 
+    cout << "\n Selecione uma opção para jogar:\n"; 
     cout << "\n 1 - Jogar \n 2 - Instruções \n 3 - Sair\n";
     cin >> escolha;
 
@@ -34,14 +47,14 @@ int menu()
 
 void instrucoes()
 {
+    system("clear");
     int escolha = 0;
     cout << "\n/*\n|--------------------------------------------------------------------------\n|REGRAS DO JOGO\n|--------------------------------------------------------------------------\n|OBJETIVO: mover todos os núméros para o pino da direita.\n|\n|REGRAS: Informando o número e a coordenada, você deve\n|mover um número de cada vez, sendo que um número maior\n|nunca pode ficar em cima de um número menor.\n|\n*/\n";
-
-    cout << "Digite 0 - Voltar ao menu:";
+    cout << "\nDigite 0 - Voltar ao menu:";
     cin >> escolha;
     if(escolha == 0)
     {
-        menu();
+        main();
     }
 }
 
