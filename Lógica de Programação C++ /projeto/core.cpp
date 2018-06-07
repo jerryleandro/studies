@@ -86,9 +86,6 @@ int jogar(int dificuldade)
     int pino2[dificuldade];
     int pino3[dificuldade];
 
-    // char coluna [] = {'1', '2', '3'};
-    // int coluna = 0;
-    // char linha [] = { 'a', 'b', 'c', 'd', 'e','f','g' };
     cout<< "\n";
     for(int i=0; i<=dificuldade ; i++)
     {
@@ -96,7 +93,7 @@ int jogar(int dificuldade)
         pino2[i]=0;
         pino3[i]=0;
     }
-    cout << " A  B  C\n";
+    cout << "      A B C\n";
 
     for(int i = 0; i <=dificuldade; i++)
     {
