@@ -6,6 +6,8 @@ int menu();
 void core();
 int jogar(int dificuldade);
 int escolha_numero(int dificuldade);
+int escolha_coluna(int dificuldade);
+int escolha_linha(int dificuldade);
 void instrucoes();
 void dica();
 
@@ -47,16 +49,16 @@ void core()
     cin>>escolha;
     if(escolha==1)
     {
-        dificuldade = 2;        
+        dificuldade = 3;        
     }
     else if (escolha ==2)
     {
-        dificuldade = 4;
+        dificuldade = 5;
 
     }
     else if (escolha ==3)
     {
-        dificuldade = 6;
+        dificuldade = 7;
     }
     else
     {
@@ -68,15 +70,14 @@ void core()
 int jogar(int dificuldade)
 {
     system("clear");
-    string nivel,escolha_coluna;
-    int escolha = 0, escolha_linha;
+    string nivel;
+    int escolha = 0, coluna =0 ,linha = 0,numero=0;
     
-
-    if(dificuldade ==2)
+    if(dificuldade ==3)
     {
         nivel = "FÁCIL";
     }
-    else if(dificuldade ==4)
+    else if(dificuldade ==5)
     {
         nivel = "MÉDIO";
 
@@ -91,25 +92,26 @@ int jogar(int dificuldade)
     int pino3[dificuldade];
 
     cout<< "\n";
-    for(int i=0; i<=dificuldade ; i++)
+    for(int i=1; i<=dificuldade ; i++)
     {
-        pino1[i] = (i+1);
+        pino1[i] = (i);
         pino2[i]=0;
         pino3[i]=0;
     }
     cout << "      A B C\n";
 
-    for(int i = 0; i <=dificuldade; i++)
+    for(int i = 1; i <=dificuldade; i++)
     {
-         cout<< "\n["<<(i+1)<<"] - "<< pino1[i] << " " << pino2[i] << " " << pino3[i] << "\n";
+         cout<< "\n["<<(i)<<"] - "<< pino1[i] << " " << pino2[i] << " " << pino3[i] << "\n";
     }
 
-    int numero = escolha_numero(dificuldade);
-
-    cout << "\n Agora escolha uma posição para mover o número " << (numero) << "\n";
+    numero = escolha_numero(dificuldade);
     dica();
-    cin >> escolha_coluna;
-    cin >> escolha_coluna;
+    coluna = escolha_coluna(dificuldade);
+    linha = escolha_linha(dificuldade);
+
+
+
 
     return 0;
 }
@@ -120,7 +122,7 @@ int escolha_numero(int dificuldade)
     int escolha = 0;
     cin >> escolha;
 
-    if(escolha > (dificuldade+1) || escolha<=0)
+    if(escolha > (dificuldade) || escolha<=0)
     {
         jogar(dificuldade);
     }
@@ -128,9 +130,51 @@ int escolha_numero(int dificuldade)
     return escolha;
 }
 
+int escolha_coluna(int dificuldade)
+{
+    char escolha;
+    int posicao =0;
+    cout << "\n Escolha uma coluna que deseja movimentar: (A B C): ";
+    cin >> escolha;
+
+    if(!(escolha == 'A' || escolha == 'B' || escolha == 'C'))
+    {
+        escolha_coluna(dificuldade);
+    }
+    else{
+        if(escolha =='A' || escolha=='a')
+        {
+            posicao = 1;
+        }
+        else if (escolha =='B'|| escolha=='b'){
+            posicao = 2;
+        }
+        else{
+            posicao =3;
+        }
+    }
+
+    return posicao;
+}
+int escolha_linha(int dificuldade)
+{
+    int escolha = 0;
+    cout << "\n Escolha uma linha que deseja movimentar (menor que "<<(dificuldade)<<") : ";
+    cin >> escolha;
+
+    if(escolha > (dificuldade) || escolha<=0)
+    {
+        escolha_linha(dificuldade);
+    }
+
+    return escolha;
+}
+
 void dica ()
 {
-    cout << "Ex.: \nB (Enter) 3 (Enter)\n Assim você estará escolhendo a posição B[3]\n";
+    cout << "\n========= DICA =========\n";
+    cout << "Ex.: \n=> B (Enter)\n=> 3 (Enter)\n Assim você estará escolhendo a posição B[3]\n";
+    cout << "\n========================\n";
 }
 
 int boasvindas()
