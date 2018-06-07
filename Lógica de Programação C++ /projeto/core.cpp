@@ -3,6 +3,8 @@
 using namespace std;
 
 int menu();
+void core();
+int jogar(int dificuldade);
 void instrucoes();
 
 int main ()
@@ -11,7 +13,7 @@ int main ()
 
     if (escolha==1)
     {
-        //chamar função do jogo aqui
+        core();
     }
     else  if(escolha ==2)
     {
@@ -24,6 +26,81 @@ int main ()
     else
     {
         main();
+    }
+    return 0;
+}
+
+void core()
+{
+    system("clear");
+    string nome;
+    int dificuldade =0;
+    int escolha;
+    cout << "\n Olá, primeiro insira o seu nickname (Apenas 1 palavra): ";
+    cin >> nome;
+    cout << "\n=============================================\n";
+    cout << "\nBem vindo ao jogo " << nome << "\n";
+    cout << "\n Escolha um número correspondente a dificuldade:\n";
+    cout <<"\n 1 - Fácil\n 2 - Médio\n 3 - Difícil\n";
+    cin>>escolha;
+    if(escolha==1)
+    {
+        dificuldade = 2;        
+    }
+    else if (escolha ==2)
+    {
+        dificuldade = 4;
+
+    }
+    else if (escolha ==3)
+    {
+        dificuldade = 6;
+    }
+    else
+    {
+        core();
+    }
+    jogar(dificuldade);
+}
+
+int jogar(int dificuldade)
+{
+    system("clear");
+    string nivel;
+
+    if(dificuldade ==2)
+    {
+        nivel = "FÁCIL";
+    }
+    else if(dificuldade ==4)
+    {
+        nivel = "MÉDIO";
+
+    }
+    else{
+        nivel = "DIFÍCIL";
+    }
+    cout << "\n================== "<<nivel<<" =====================\n";
+
+    int pino1[dificuldade];
+    int pino2[dificuldade];
+    int pino3[dificuldade];
+
+    // char coluna [] = {'1', '2', '3'};
+    // int coluna = 0;
+    // char linha [] = { 'a', 'b', 'c', 'd', 'e','f','g' };
+    cout<< "\n";
+    for(int i=0; i<=dificuldade ; i++)
+    {
+        pino1[i] = (i+1);
+        pino2[i]=0;
+        pino3[i]=0;
+    }
+    cout << " A  B  C\n";
+
+    for(int i = 0; i <=dificuldade; i++)
+    {
+         cout<< "\n["<<(i+1)<<"] - "<< pino1[i] << " " << pino2[i] << " " << pino3[i] << "\n";
     }
     return 0;
 }
