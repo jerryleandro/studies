@@ -7,6 +7,7 @@ void core();
 int jogar(int dificuldade);
 int escolha_numero(int dificuldade);
 void instrucoes();
+void dica();
 
 int main ()
 {
@@ -67,8 +68,9 @@ void core()
 int jogar(int dificuldade)
 {
     system("clear");
-    string nivel;
-    int escolha = 0;
+    string nivel,escolha_coluna;
+    int escolha = 0, escolha_linha;
+    
 
     if(dificuldade ==2)
     {
@@ -105,6 +107,10 @@ int jogar(int dificuldade)
     int numero = escolha_numero(dificuldade);
 
     cout << "\n Agora escolha uma posição para mover o número " << (numero) << "\n";
+    dica();
+    cin >> escolha_coluna;
+    cin >> escolha_coluna;
+
     return 0;
 }
 
@@ -120,6 +126,11 @@ int escolha_numero(int dificuldade)
     }
 
     return escolha;
+}
+
+void dica ()
+{
+    cout << "Ex.: \nB (Enter) 3 (Enter)\n Assim você estará escolhendo a posição B[3]\n";
 }
 
 int boasvindas()
