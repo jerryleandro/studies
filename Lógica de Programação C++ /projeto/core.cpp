@@ -5,6 +5,7 @@ using namespace std;
 int menu();
 void core();
 int jogar(int dificuldade);
+int escolha_numero(int dificuldade);
 void instrucoes();
 
 int main ()
@@ -67,6 +68,7 @@ int jogar(int dificuldade)
 {
     system("clear");
     string nivel;
+    int escolha = 0;
 
     if(dificuldade ==2)
     {
@@ -99,7 +101,25 @@ int jogar(int dificuldade)
     {
          cout<< "\n["<<(i+1)<<"] - "<< pino1[i] << " " << pino2[i] << " " << pino3[i] << "\n";
     }
+
+    int numero = escolha_numero(dificuldade);
+
+    cout << "\n Agora escolha uma posição para mover o número " << (numero) << "\n";
     return 0;
+}
+
+int escolha_numero(int dificuldade)
+{
+    cout << "\n Escolha um dos números que deseja movimentar: ";
+    int escolha = 0;
+    cin >> escolha;
+
+    if(escolha > (dificuldade+1) || escolha<=0)
+    {
+        jogar(dificuldade);
+    }
+
+    return escolha;
 }
 
 int boasvindas()
