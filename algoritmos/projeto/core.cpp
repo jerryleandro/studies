@@ -5,8 +5,8 @@ using namespace std;
 int menu();
 void core();
 
-int jogar(int dificuldade);
-int escolha_numero(int dificuldade);
+int jogar(int dificuldade, string nome);
+int escolha_numero(int dificuldade, string nome);
 int escolha_coluna(int dificuldade);
 int menor_numero(int numero , int vetor[], int dificuldade);
 int calcula_estrela(int dificuldade);
@@ -15,7 +15,7 @@ void instrucoes();
 void dica();
 bool checa_vitoria(int pino3[], int dificuldade);
 void exibir_tabuleiro(int dificuldade, int pino1[], int pino2[], int pino3[]);
-void final_jogo(int movimentos, int dificuldade);
+void final_jogo(int movimentos, int dificuldade, string nome);
 
 
 
@@ -72,11 +72,10 @@ void core()
     {
         core();
     }
-
-    jogar(dificuldade);
+    jogar(dificuldade,nome);
 }
 
-int jogar(int dificuldade)
+int jogar(int dificuldade, string nome)
 {
     system("clear");
     int escolha = 0, coluna =0,numero=0;
@@ -104,7 +103,7 @@ int jogar(int dificuldade)
     //Mudar a condição p/ até o usuário sair ou ganhar
     while(!vitoria)
     {
-        numero = escolha_numero(dificuldade);
+        numero = escolha_numero(dificuldade, nome);
         coluna = escolha_coluna(dificuldade);
 
         //percorrendo os vetores para movimentar
@@ -230,12 +229,12 @@ int jogar(int dificuldade)
         vitoria = checa_vitoria(pino3, dificuldade);
     }
 
-    final_jogo(movimentos,dificuldade);
+    final_jogo(movimentos,dificuldade,nome);
 
     return 0;
 }
 
-void final_jogo(int movimentos, int dificuldade)
+void final_jogo(int movimentos, int dificuldade, string nome)
 {
     system("clear");
     string nivel;
@@ -273,7 +272,7 @@ void final_jogo(int movimentos, int dificuldade)
     {
         estrelas = "X";
     }
-    cout << "\n/*\n|--------------------------------------------------------------------------\n|PARABÉNS VOCÊ VENCEU!!!\n|--------------------------------------------------------------------------\n|\n|NÍVEL:" << nivel << "\n|\n|NÚMERO DE MOVIMENTOS NA PARTIDA: "<< movimentos<<".\n|\n|ESTRELAS: " << estrelas <<"\n|\n*/\n";
+    cout << "\n/*\n|--------------------------------------------------------------------------\n|PARABÉNS " << nome<<", VOCÊ VENCEU!!!\n|--------------------------------------------------------------------------\n|\n|NÍVEL:" << nivel << "\n|\n|NÚMERO DE MOVIMENTOS NA PARTIDA: "<< movimentos<<".\n|\n|ESTRELAS: " << estrelas <<"\n|\n*/\n";
 
 }
 
@@ -346,7 +345,7 @@ int menor_numero(int numero , int vetor[], int dificuldade)
     return resultado;
 }
 
-int escolha_numero(int dificuldade)
+int escolha_numero(int dificuldade, string nome)
 {
     cout << "\n 0 - REINICIAR O JOGO!\n";
     cout << "\n 99 - SAIR O JOGO!\n";
@@ -361,7 +360,7 @@ int escolha_numero(int dificuldade)
     }
     if(escolha > (dificuldade) || escolha<=0)
     {
-        jogar(dificuldade);
+        jogar(dificuldade,nome);
     }
     return escolha;
 }
