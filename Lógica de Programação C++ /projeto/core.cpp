@@ -125,6 +125,7 @@ int jogar(int dificuldade)
 
                 if(coluna==2)
                 {
+
                     for(int i=dificuldade; i>=1 ; i--)
                     {
                         if(pino2[i]==0)
@@ -228,6 +229,7 @@ int jogar(int dificuldade)
 
 int escolha_numero(int dificuldade)
 {
+    cout << "\n 0 - REINICIAR O JOGO!\n";
     cout << "\n Escolha um dos números que deseja movimentar: ";
     int escolha = 0;
     cin >> escolha;
