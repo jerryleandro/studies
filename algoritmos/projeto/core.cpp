@@ -9,11 +9,13 @@ int jogar(int dificuldade);
 int escolha_numero(int dificuldade);
 int escolha_coluna(int dificuldade);
 int menor_numero(int numero , int vetor[], int dificuldade);
+int calcula_estrela(int dificuldade);
 
 void instrucoes();
 void dica();
-void alerta();
+bool checa_vitoria(int pino3[], int dificuldade);
 void exibir_tabuleiro(int dificuldade, int pino1[], int pino2[], int pino3[]);
+void final_jogo(int movimentos, int dificuldade);
 
 
 
@@ -224,11 +226,62 @@ int jogar(int dificuldade)
         system("clear");
         exibir_tabuleiro(dificuldade, pino1,  pino2, pino3);
         cout << "\n => Jogadas: " << movimentos <<"\n";
+
+        vitoria = checa_vitoria(pino3, dificuldade);
     }
+
+    final_jogo(movimentos,dificuldade);
 
     return 0;
 }
 
+void final_jogo(int movimentos, int dificuldade)
+{
+    system("clear");
+    string nivel;
+    string estrelas;
+
+    if(dificuldade ==3)
+    {
+        nivel = "FÁCIL";
+    }
+    else if(dificuldade ==5)
+    {
+        nivel = "MÉDIO";
+
+    }
+    else
+    {
+        nivel = "DIFÍCIL";
+    }
+    
+    int desempenho = calcula_estrela(dificuldade);
+    if(movimentos== desempenho)
+    {
+        estrelas = "X X X X X";
+    }
+    else if(movimentos == (desempenho+2)){
+        estrelas = "X X X X";
+    }
+    else if(movimentos == (desempenho+3)){
+        estrelas = "X X X";
+    }
+    else if(movimentos == (desempenho+4)){
+        estrelas = "X X";
+    }
+    else
+    {
+        estrelas = "X";
+    }
+    cout << "\n/*\n|--------------------------------------------------------------------------\n|PARABÉNS VOCÊ VENCEU!!!\n|--------------------------------------------------------------------------\n|\n|NÍVEL:" << nivel << "\n|\n|NÚMERO DE MOVIMENTOS NA PARTIDA: "<< movimentos<<".\n|\n|ESTRELAS: " << estrelas <<"\n|\n*/\n";
+
+}
+
+int calcula_estrela(int dificuldade)
+{
+    int resultado = (2^dificuldade)-1;
+    return resultado;
+}
 void exibir_tabuleiro(int dificuldade, int pino1[], int pino2[], int pino3[])
 {
     string nivel;
@@ -256,9 +309,23 @@ void exibir_tabuleiro(int dificuldade, int pino1[], int pino2[], int pino3[])
     }
 }
 
-void alerta()
+bool checa_vitoria(int pino3[], int dificuldade)
 {
-    cout << "\n =====JOGADA INVÁLIDA!=====\n";
+    bool resposta = true;
+    int correto [dificuldade];
+    for(int i=1; i<=dificuldade ; i++)
+    {
+        correto[i] = i;
+    }
+
+    for(int i = 1; i <=dificuldade; i++)
+    {
+        if(pino3[i]!=correto[i])
+        {
+            resposta = false;
+        }
+    }
+    return resposta;
 }
 int menor_numero(int numero , int vetor[], int dificuldade)
 {
@@ -306,7 +373,7 @@ int escolha_coluna(int dificuldade)
     cout << "\n Escolha uma coluna que deseja movimentar: (A B C): ";
     cin >> escolha;
 
-    if(!(escolha == 'A' || escolha == 'B' || escolha == 'C'))
+    if(!(escolha == 'A' || escolha == 'B' || escolha == 'C'||escolha == 'a' || escolha == 'b' || escolha == 'c'))
     {
         escolha_coluna(dificuldade);
     }
