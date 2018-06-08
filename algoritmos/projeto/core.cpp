@@ -116,9 +116,12 @@ int jogar(int dificuldade, string nome)
                 //verificar se é o menor (diferente de zero)  para depois mover
                 if(validacao_peca==1)
                 {
-                    pino1[i]=0;
-                    if(coluna==2)
+                    int validacao_coluna2 = menor_numero(numero,pino2,dificuldade);
+                    int validacao_coluna3 = menor_numero(numero,pino3,dificuldade);
+
+                    if(coluna==2 && validacao_coluna2 ==1)
                     {
+                        pino1[i]=0;
                         movimentos++;
                         //verificar se é o menor da coluna
                         for(int i=dificuldade; i>=1 ; i--)
@@ -131,8 +134,9 @@ int jogar(int dificuldade, string nome)
                         }
                         break;
                     }
-                    else if (coluna==3)
+                    else if (coluna==3 && validacao_coluna3 ==1)
                     {
+                        pino1[i]=0;
                         movimentos++;
                         //verificar se é o menor da coluna
                         for(int i=dificuldade; i>=1 ; i--)
@@ -154,9 +158,11 @@ int jogar(int dificuldade, string nome)
                 //verificar se é o menor (diferente de zero)  para depois mover
                 if(validacao_peca==1)
                 {
-                    pino2[i]=0;
-                    if(coluna==1)
+                    int validacao_coluna1 = menor_numero(numero,pino1,dificuldade);
+                    int validacao_coluna3 = menor_numero(numero,pino3,dificuldade);
+                    if(coluna==1 && validacao_coluna1 ==1)
                     {
+                        pino2[i]=0;
                         movimentos++;
                         for(int i=dificuldade; i>=1 ; i--)
                         {
@@ -168,8 +174,9 @@ int jogar(int dificuldade, string nome)
                         }
                         break;
                     }
-                    else if (coluna==3)
+                    else if (coluna==3 && validacao_coluna3==1)
                     {
+                        pino2[i]=0;
                         movimentos++;
                         for(int i=dificuldade; i>=1 ; i--)
                         {
@@ -188,12 +195,13 @@ int jogar(int dificuldade, string nome)
             else if(pino3[i]==numero)
             {
                 int validacao_peca = menor_numero(numero,pino3,dificuldade);
-                //verificar se é o menor (diferente de zero)  para depois mover
+                int validacao_coluna1 = menor_numero(numero,pino1,dificuldade);
+                int validacao_coluna2 = menor_numero(numero,pino2,dificuldade);
                 if(validacao_peca==1)
                 {
-                    pino3[i]=0;
-                    if(coluna==2)
+                    if(coluna==2 && validacao_coluna2==1)
                     {
+                        pino3[i]=0;
                         movimentos++;
                         for(int i=dificuldade; i>=1 ; i--)
                         {
@@ -205,8 +213,9 @@ int jogar(int dificuldade, string nome)
                         }
                         break;
                     }
-                    else if (coluna==1)
+                    else if (coluna==1 && validacao_coluna1 == 1)
                     {
+                        pino3[i]=0;
                         movimentos++;
                         for(int i=dificuldade; i>=1 ; i--)
                         {
@@ -273,7 +282,17 @@ void final_jogo(int movimentos, int dificuldade, string nome)
         estrelas = "X";
     }
     cout << "\n/*\n|--------------------------------------------------------------------------\n|PARABÉNS " << nome<<", VOCÊ VENCEU!!!\n|--------------------------------------------------------------------------\n|\n|NÍVEL:" << nivel << "\n|\n|NÚMERO DE MOVIMENTOS NA PARTIDA: "<< movimentos<<".\n|\n|ESTRELAS: " << estrelas <<"\n|\n*/\n";
-
+    cout <<"\n 0 - Jogar novamente\n 99 - SAIR\n";
+    int escolha_final;
+    cin>>escolha_final;
+    if(escolha_final==0)
+    {
+        jogar(dificuldade,nome);
+    }
+    else if (escolha_final==99)
+    {
+        exit(0);
+    }
 }
 
 int calcula_estrela(int dificuldade)
