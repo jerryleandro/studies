@@ -107,11 +107,13 @@ int jogar(int dificuldade)
     }
 
     int movimentos = 0;
+    bool vitoria = false;
+
 
     dica();
 
     //Mudar a condição p/ até o usuário sair ou ganhar
-    while(movimentos <100)
+    while(!vitoria)
     {
         numero = escolha_numero(dificuldade);
         coluna = escolha_coluna(dificuldade);
@@ -230,10 +232,16 @@ int jogar(int dificuldade)
 int escolha_numero(int dificuldade)
 {
     cout << "\n 0 - REINICIAR O JOGO!\n";
+    cout << "\n 99 - SAIR O JOGO!\n";
+
     cout << "\n Escolha um dos números que deseja movimentar: ";
     int escolha = 0;
     cin >> escolha;
 
+    if(escolha == 99)
+    {
+        exit(0);
+    }
     if(escolha > (dificuldade) || escolha<=0)
     {
         jogar(dificuldade);
@@ -268,19 +276,6 @@ int escolha_coluna(int dificuldade)
 
     return posicao;
 }
-// int escolha_linha(int dificuldade)
-// {
-//     int escolha = 0;
-//     cout << "\n Escolha uma linha que deseja movimentar (menor que "<<(dificuldade)<<") : ";
-//     cin >> escolha;
-
-//     if(escolha > (dificuldade) || escolha<=0)
-//     {
-//         escolha_linha(dificuldade);
-//     }
-
-//     return escolha;
-// }
 
 void dica ()
 {
