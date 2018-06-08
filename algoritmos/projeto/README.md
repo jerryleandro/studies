@@ -1,5 +1,5 @@
 # Torre de Hanói
-<p align="center"><img src="https://github.com/jilcimar/studies/blob/master/algoritmos/projeto/imagens/intro.png"></p>
+<p align="center"><img src="https://github.com/jilcimar/studies/blob/master/algoritmos/projeto/imagens/intro.png" width="350px"></p>
 
 
 
