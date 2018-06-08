@@ -1,4 +1,8 @@
 # Torre de Hanói
+<p align="center"><img src="https://github.com/jilcimar/studies/blob/master/algoritmos/projeto/imagens/intro.png"></p>
+
+
+
 O projeto final da disciplina de algoritmos tem como proposto desenvolver o famoso jogo da Torre de Hanói utilizando C++.
 
 *** 
