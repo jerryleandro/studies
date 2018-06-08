@@ -1,5 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
+#include <math.h>
+
 using namespace std;
 
 int menu();
@@ -78,6 +80,8 @@ void core()
 int jogar(int dificuldade, string nome)
 {
     system("clear");
+  
+
     int escolha = 0, coluna =0,numero=0;
     
     int pino1[dificuldade];
@@ -234,7 +238,7 @@ int jogar(int dificuldade, string nome)
         system("clear");
         exibir_tabuleiro(dificuldade, pino1,  pino2, pino3);
         cout << "\n => Jogadas: " << movimentos <<"\n";
-
+    
         vitoria = checa_vitoria(pino3, dificuldade);
     }
 
@@ -297,7 +301,7 @@ void final_jogo(int movimentos, int dificuldade, string nome)
 
 int calcula_estrela(int dificuldade)
 {
-    int resultado = (2^dificuldade)-1;
+    int resultado = (pow(2,dificuldade))-1;
     return resultado;
 }
 void exibir_tabuleiro(int dificuldade, int pino1[], int pino2[], int pino3[])
