@@ -92,6 +92,7 @@ int jogar(int dificuldade)
     int pino3[dificuldade];
 
     cout<< "\n";
+  
     for(int i=1; i<=dificuldade ; i++)
     {
         pino1[i] = (i);
@@ -105,13 +106,124 @@ int jogar(int dificuldade)
          cout<< "\n["<<(i)<<"] - "<< pino1[i] << " " << pino2[i] << " " << pino3[i] << "\n";
     }
 
-    numero = escolha_numero(dificuldade);
+    int movimentos = 0;
+
     dica();
-    coluna = escolha_coluna(dificuldade);
-    linha = escolha_linha(dificuldade);
 
+    //Mudar a condição p/ até o usuário sair ou ganhar
+    while(movimentos <100)
+    {
+        numero = escolha_numero(dificuldade);
+        coluna = escolha_coluna(dificuldade);
 
+        for(int i = 1; i <=dificuldade; i++)
+        {
+            //SE  O NÚMERO TIVER NO PINO 1
+            if(pino1[i]==numero)
+            {
+                pino1[i]=0;
 
+                //se for mover para a coluna 2
+                if(coluna==2)
+                {
+                    for(int i=dificuldade; i>=1 ; i--)
+                    {
+                        if(pino2[i]==0)
+                        {
+                            pino2[i]=numero;
+                            break;
+                        }
+                    }
+                    break;
+                }
+                //se for mover para a coluna 3
+                else if (coluna==3)
+                {
+                    for(int i=dificuldade; i>=1 ; i--)
+                    {
+                        if(pino3[i]==0)
+                        {
+                            pino3[i]=numero;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+            //Se tiver no 2 pino
+            else if(pino2[i]==numero)
+            {
+                pino2[i]=0;
+
+                if(coluna==1)
+                {
+                    for(int i=dificuldade; i>=1 ; i--)
+                    {
+                        if( pino1[i]==0)
+                        {
+                             pino1[i]=numero;
+                            break;
+                        }
+                    }
+                    break;
+                }
+                else if (coluna==3)
+                {
+                    for(int i=dificuldade; i>=1 ; i--)
+                    {
+                        if( pino3[i]==0)
+                        {
+                             pino3[i]=numero;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+            //Se tiver no 3 pino
+            else if(pino3[i]==numero)
+            {
+                pino3[i]=0;
+
+                if(coluna==2)
+                {
+                    for(int i=dificuldade; i>=1 ; i--)
+                    {
+                        if( pino2[i]==0)
+                        {
+                             pino2[i]=numero;
+                            break;
+                        }
+                    }
+                    break;
+                }
+                else if (coluna==1)
+                {
+                    for(int i=dificuldade; i>=1 ; i--)
+                    {
+                        if(pino1[i]==0)
+                        {
+                             pino1[i]=numero;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+        movimentos++;
+
+        system("clear");
+
+        cout << "      A B C\n";
+        for(int i = 1; i <=dificuldade; i++)
+        {
+         cout<< "\n["<<(i)<<"] - "<< pino1[i] << " " << pino2[i] << " " << pino3[i] << "\n";
+        }
+
+        cout << "\n => Jogada: " << movimentos <<"\n";
+    }
 
     return 0;
 }
@@ -156,24 +268,24 @@ int escolha_coluna(int dificuldade)
 
     return posicao;
 }
-int escolha_linha(int dificuldade)
-{
-    int escolha = 0;
-    cout << "\n Escolha uma linha que deseja movimentar (menor que "<<(dificuldade)<<") : ";
-    cin >> escolha;
+// int escolha_linha(int dificuldade)
+// {
+//     int escolha = 0;
+//     cout << "\n Escolha uma linha que deseja movimentar (menor que "<<(dificuldade)<<") : ";
+//     cin >> escolha;
 
-    if(escolha > (dificuldade) || escolha<=0)
-    {
-        escolha_linha(dificuldade);
-    }
+//     if(escolha > (dificuldade) || escolha<=0)
+//     {
+//         escolha_linha(dificuldade);
+//     }
 
-    return escolha;
-}
+//     return escolha;
+// }
 
 void dica ()
 {
     cout << "\n========= DICA =========\n";
-    cout << "Ex.: \n=> B (Enter)\n=> 3 (Enter)\n Assim você estará escolhendo a posição B[3]\n";
+    cout << "Ex.: \n=> 2 (Enter)\n=> B (Enter)\n Assim você estará movendo o número 2 para a coluna B\n";
     cout << "\n========================\n";
 }
 
