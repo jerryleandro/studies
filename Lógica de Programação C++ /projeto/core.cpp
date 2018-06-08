@@ -118,12 +118,11 @@ int jogar(int dificuldade)
 
         for(int i = 1; i <=dificuldade; i++)
         {
-            //SE  O NÚMERO TIVER NO PINO 1
+            //Se tiver no 1 pino
             if(pino1[i]==numero)
             {
                 pino1[i]=0;
 
-                //se for mover para a coluna 2
                 if(coluna==2)
                 {
                     for(int i=dificuldade; i>=1 ; i--)
@@ -136,7 +135,6 @@ int jogar(int dificuldade)
                     }
                     break;
                 }
-                //se for mover para a coluna 3
                 else if (coluna==3)
                 {
                     for(int i=dificuldade; i>=1 ; i--)
