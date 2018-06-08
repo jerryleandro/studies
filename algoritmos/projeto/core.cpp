@@ -4,12 +4,18 @@ using namespace std;
 
 int menu();
 void core();
+
 int jogar(int dificuldade);
 int escolha_numero(int dificuldade);
 int escolha_coluna(int dificuldade);
-int escolha_linha(int dificuldade);
+int menor_numero(int numero , int vetor[], int dificuldade);
+
 void instrucoes();
 void dica();
+void alerta();
+void exibir_tabuleiro(int dificuldade, int pino1[], int pino2[], int pino3[]);
+
+
 
 int main ()
 {
@@ -64,29 +70,15 @@ void core()
     {
         core();
     }
+
     jogar(dificuldade);
 }
 
 int jogar(int dificuldade)
 {
     system("clear");
-    string nivel;
-    int escolha = 0, coluna =0 ,linha = 0,numero=0;
+    int escolha = 0, coluna =0,numero=0;
     
-    if(dificuldade ==3)
-    {
-        nivel = "FÁCIL";
-    }
-    else if(dificuldade ==5)
-    {
-        nivel = "MÉDIO";
-
-    }
-    else{
-        nivel = "DIFÍCIL";
-    }
-    cout << "\n================== "<<nivel<<" =====================\n";
-
     int pino1[dificuldade];
     int pino2[dificuldade];
     int pino3[dificuldade];
@@ -99,16 +91,11 @@ int jogar(int dificuldade)
         pino2[i]=0;
         pino3[i]=0;
     }
-    cout << "      A B C\n";
 
-    for(int i = 1; i <=dificuldade; i++)
-    {
-         cout<< "\n["<<(i)<<"] - "<< pino1[i] << " " << pino2[i] << " " << pino3[i] << "\n";
-    }
+    exibir_tabuleiro(dificuldade, pino1,  pino2, pino3);
 
     int movimentos = 0;
     bool vitoria = false;
-
 
     dica();
 
@@ -118,115 +105,178 @@ int jogar(int dificuldade)
         numero = escolha_numero(dificuldade);
         coluna = escolha_coluna(dificuldade);
 
+        //percorrendo os vetores para movimentar
         for(int i = 1; i <=dificuldade; i++)
-        {
+        {        
             //Se tiver no 1 pino
             if(pino1[i]==numero)
             {
-                pino1[i]=0;
-
-                if(coluna==2)
+                int validacao_peca = menor_numero(numero,pino1,dificuldade);
+                //verificar se é o menor (diferente de zero)  para depois mover
+                if(validacao_peca==1)
                 {
-
-                    for(int i=dificuldade; i>=1 ; i--)
+                    pino1[i]=0;
+                    if(coluna==2)
                     {
-                        if(pino2[i]==0)
+                        movimentos++;
+                        //verificar se é o menor da coluna
+                        for(int i=dificuldade; i>=1 ; i--)
                         {
-                            pino2[i]=numero;
-                            break;
+                            if(pino2[i]==0)
+                            {
+                                pino2[i]=numero;
+                                break;
+                            }
                         }
+                        break;
                     }
-                    break;
-                }
-                else if (coluna==3)
-                {
-                    for(int i=dificuldade; i>=1 ; i--)
+                    else if (coluna==3)
                     {
-                        if(pino3[i]==0)
+                        movimentos++;
+                        //verificar se é o menor da coluna
+                        for(int i=dificuldade; i>=1 ; i--)
                         {
-                            pino3[i]=numero;
-                            break;
+                            if(pino3[i]==0)
+                            {
+                                pino3[i]=numero;
+                                break;
+                            }
                         }
+                        break;
                     }
-                    break;
                 }
             }
             //Se tiver no 2 pino
             else if(pino2[i]==numero)
             {
-                pino2[i]=0;
-
-                if(coluna==1)
+                int validacao_peca = menor_numero(numero,pino2,dificuldade);
+                //verificar se é o menor (diferente de zero)  para depois mover
+                if(validacao_peca==1)
                 {
-                    for(int i=dificuldade; i>=1 ; i--)
+                    pino2[i]=0;
+                    if(coluna==1)
                     {
-                        if( pino1[i]==0)
+                        movimentos++;
+                        for(int i=dificuldade; i>=1 ; i--)
                         {
-                             pino1[i]=numero;
-                            break;
+                            if( pino1[i]==0)
+                            {
+                                pino1[i]=numero;
+                                break;
+                            }
                         }
+                        break;
                     }
-                    break;
-                }
-                else if (coluna==3)
-                {
-                    for(int i=dificuldade; i>=1 ; i--)
+                    else if (coluna==3)
                     {
-                        if( pino3[i]==0)
+                        movimentos++;
+                        for(int i=dificuldade; i>=1 ; i--)
                         {
-                             pino3[i]=numero;
-                            break;
+                            if( pino3[i]==0)
+                            {
+                                pino3[i]=numero;
+                                break;
+                            }
                         }
+                        break;
                     }
-                    break;
+                    
                 }
             }
             //Se tiver no 3 pino
             else if(pino3[i]==numero)
             {
-                pino3[i]=0;
-
-                if(coluna==2)
+                int validacao_peca = menor_numero(numero,pino3,dificuldade);
+                //verificar se é o menor (diferente de zero)  para depois mover
+                if(validacao_peca==1)
                 {
-                    for(int i=dificuldade; i>=1 ; i--)
+                    pino3[i]=0;
+                    if(coluna==2)
                     {
-                        if( pino2[i]==0)
+                        movimentos++;
+                        for(int i=dificuldade; i>=1 ; i--)
                         {
-                             pino2[i]=numero;
-                            break;
+                            if( pino2[i]==0)
+                            {
+                                pino2[i]=numero;
+                                break;
+                            }
                         }
+                        break;
                     }
-                    break;
-                }
-                else if (coluna==1)
-                {
-                    for(int i=dificuldade; i>=1 ; i--)
+                    else if (coluna==1)
                     {
-                        if(pino1[i]==0)
+                        movimentos++;
+                        for(int i=dificuldade; i>=1 ; i--)
                         {
-                             pino1[i]=numero;
-                            break;
+                            if(pino1[i]==0)
+                            {
+                                pino1[i]=numero;
+                                break;
+                            }
                         }
+                        break;
                     }
-                    break;
                 }
             }
         }
 
-        movimentos++;
-
         system("clear");
-
-        cout << "      A B C\n";
-        for(int i = 1; i <=dificuldade; i++)
-        {
-         cout<< "\n["<<(i)<<"] - "<< pino1[i] << " " << pino2[i] << " " << pino3[i] << "\n";
-        }
-
-        cout << "\n => Jogada: " << movimentos <<"\n";
+        exibir_tabuleiro(dificuldade, pino1,  pino2, pino3);
+        cout << "\n => Jogadas: " << movimentos <<"\n";
     }
 
     return 0;
+}
+
+void exibir_tabuleiro(int dificuldade, int pino1[], int pino2[], int pino3[])
+{
+    string nivel;
+
+    if(dificuldade ==3)
+    {
+        nivel = "FÁCIL";
+    }
+    else if(dificuldade ==5)
+    {
+        nivel = "MÉDIO";
+
+    }
+    else
+    {
+        nivel = "DIFÍCIL";
+    }
+
+    cout << "\n================== "<<nivel<<" =====================\n";
+    cout << "      A B C\n";
+
+    for(int i = 1; i <=dificuldade; i++)
+    {
+         cout<< "\n["<<(i)<<"] - "<< pino1[i] << " " << pino2[i] << " " << pino3[i] << "\n";
+    }
+}
+
+void alerta()
+{
+    cout << "\n =====JOGADA INVÁLIDA!=====\n";
+}
+int menor_numero(int numero , int vetor[], int dificuldade)
+{
+    int menor = numero;
+    int resultado = 0; //0 - FALSO 1- OK
+
+    for(int i = 1; i<= dificuldade; i++)
+    {
+        if((vetor[i]!=0) && (vetor[i]<numero))
+        {
+            menor = vetor[i];
+        }
+    }
+    if(menor==numero)
+    {
+        resultado = 1;
+    }
+    return resultado;
 }
 
 int escolha_numero(int dificuldade)
@@ -246,7 +296,6 @@ int escolha_numero(int dificuldade)
     {
         jogar(dificuldade);
     }
-
     return escolha;
 }
 
@@ -305,7 +354,7 @@ void instrucoes()
 {
     system("clear");
     int escolha = 0;
-    cout << "\n/*\n|--------------------------------------------------------------------------\n|REGRAS DO JOGO\n|--------------------------------------------------------------------------\n|OBJETIVO: mover todos os núméros para o pino da direita.\n|\n|REGRAS: Informando o número e a coordenada, você deve\n|mover um número de cada vez, sendo que um número maior\n|nunca pode ficar em cima de um número menor.\n|\n*/\n";
+    cout << "\n/*\n|--------------------------------------------------------------------------\n|REGRAS DO JOGO\n|--------------------------------------------------------------------------\n|OBJETIVO: Mover todos os núméros para o pino da direita.\n|\n|REGRAS: Informando o número e a coordenada, você deve\n|mover um número de cada vez, sendo que um número maior\n|nunca pode ficar em cima de um número menor.\n|\n*/\n";
     cout << "\nDigite 0 - Voltar ao menu:";
     cin >> escolha;
     if(escolha == 0)
