@@ -372,7 +372,7 @@ int escolha_numero(int dificuldade, string nome)
     }
     if(escolha > (dificuldade) || escolha<=0)
     {
-        jogar(dificuldade,nome);
+        escolha_numero(dificuldade,nome);
     }
     return escolha;
 }
