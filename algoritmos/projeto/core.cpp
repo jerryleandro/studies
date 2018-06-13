@@ -19,8 +19,6 @@ bool checa_vitoria(int pino3[], int dificuldade);
 void exibir_tabuleiro(int dificuldade, int pino1[], int pino2[], int pino3[]);
 void final_jogo(int movimentos, int dificuldade, string nome);
 
-
-
 int main ()
 {
     int escolha = menu();
@@ -104,20 +102,16 @@ int jogar(int dificuldade, string nome)
 
     dica();
 
-    //Mudar a condição p/ até o usuário sair ou ganhar
     while(!vitoria)
     {
         numero = escolha_numero(dificuldade, nome);
         coluna = escolha_coluna(dificuldade);
 
-        //percorrendo os vetores para movimentar
         for(int i = 1; i <=dificuldade; i++)
         {        
-            //Se tiver no 1 pino
             if(pino1[i]==numero)
             {
                 int validacao_peca = menor_numero(numero,pino1,dificuldade);
-                //verificar se é o menor (diferente de zero)  para depois mover
                 if(validacao_peca==1)
                 {
                     int validacao_coluna2 = menor_numero(numero,pino2,dificuldade);
@@ -127,7 +121,6 @@ int jogar(int dificuldade, string nome)
                     {
                         pino1[i]=0;
                         movimentos++;
-                        //verificar se é o menor da coluna
                         for(int i=dificuldade; i>=1 ; i--)
                         {
                             if(pino2[i]==0)
@@ -142,7 +135,6 @@ int jogar(int dificuldade, string nome)
                     {
                         pino1[i]=0;
                         movimentos++;
-                        //verificar se é o menor da coluna
                         for(int i=dificuldade; i>=1 ; i--)
                         {
                             if(pino3[i]==0)
@@ -155,11 +147,9 @@ int jogar(int dificuldade, string nome)
                     }
                 }
             }
-            //Se tiver no 2 pino
             else if(pino2[i]==numero)
             {
                 int validacao_peca = menor_numero(numero,pino2,dificuldade);
-                //verificar se é o menor (diferente de zero)  para depois mover
                 if(validacao_peca==1)
                 {
                     int validacao_coluna1 = menor_numero(numero,pino1,dificuldade);
@@ -192,10 +182,8 @@ int jogar(int dificuldade, string nome)
                         }
                         break;
                     }
-                    
                 }
             }
-            //Se tiver no 3 pino
             else if(pino3[i]==numero)
             {
                 int validacao_peca = menor_numero(numero,pino3,dificuldade);
@@ -329,6 +317,7 @@ void exibir_tabuleiro(int dificuldade, int pino1[], int pino2[], int pino3[])
     {
          cout<< "\n["<<(i)<<"] - "<< pino1[i] << " " << pino2[i] << " " << pino3[i] << "\n";
     }
+
 }
 
 bool checa_vitoria(int pino3[], int dificuldade)
@@ -352,7 +341,7 @@ bool checa_vitoria(int pino3[], int dificuldade)
 int menor_numero(int numero , int vetor[], int dificuldade)
 {
     int menor = numero;
-    int resultado = 0; //0 - FALSO 1- OK
+    int resultado = 0;
 
     for(int i = 1; i<= dificuldade; i++)
     {
