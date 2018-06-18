@@ -91,6 +91,6 @@ int main ()
     {
         cout << novo_vetor[i] << " ";
     }
-
+    
     return 0;
 }
