@@ -372,10 +372,15 @@ int escolha_numero(int dificuldade, string nome)
     {
         exit(0);
     }
+    if(escolha==0)
+    {
+        jogar(dificuldade,nome);
+    }
     if(escolha > (dificuldade) || escolha<=0)
     {
         escolha_numero(dificuldade,nome);
     }
+  
     return escolha;
 }
 
@@ -385,7 +390,7 @@ int escolha_coluna(int dificuldade)
     int posicao =0;
     cout << "\n Escolha uma coluna que deseja movimentar: (A B C): ";
     cin >> escolha;
-
+    
     if(!(escolha == 'A' || escolha == 'B' || escolha == 'C'||escolha == 'a' || escolha == 'b' || escolha == 'c'))
     {
         escolha_coluna(dificuldade);
