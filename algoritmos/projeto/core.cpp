@@ -1,6 +1,9 @@
 #include <iostream>
 #include <stdlib.h>
 #include <math.h>
+#include <string>
+
+
 
 using namespace std;
 
@@ -49,7 +52,8 @@ void core()
     int dificuldade =0;
     int escolha;
     cout << "\n Olá, primeiro insira o seu nickname (Apenas 1 palavra): ";
-    cin >> nome;
+    cin.ignore();
+    getline( cin, nome );
     cout << "\n=============================================\n";
     cout << "\nBem vindo ao jogo " << nome << "\n";
     cout << "\n Escolha um número correspondente a dificuldade:\n";
