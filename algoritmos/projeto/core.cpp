@@ -3,8 +3,6 @@
 #include <math.h>
 #include <string>
 
-
-
 using namespace std;
 
 int menu();
@@ -51,7 +49,7 @@ void core()
     string nome;
     int dificuldade =0;
     int escolha;
-    cout << "\n Olá, primeiro insira o seu nickname (Apenas 1 palavra): ";
+    cout << "\n Olá, primeiro insira o seu nickname: ";
     cin.ignore();
     getline( cin, nome );
     cout << "\n=============================================\n";
