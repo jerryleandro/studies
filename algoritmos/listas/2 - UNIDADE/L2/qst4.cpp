@@ -4,48 +4,23 @@ using namespace std;
 
 int main ()
 {
-    int n;
-    cout << "Insira um número:";
+    int n=0,m=0;
+    cout << "Insira o primeiro número:";
     cin >> n;
+    cout << "\nInsira o segundo número:";
+    cin >> m;
 
-    if(n%2!=0 && n>=3)
+    int vetor[n-m];
+    int divisivel = 0 ;
+    for(int i = m ; i<=n ; i++)
     {
-         int v[n];
-
-        for (int i =0; i < n; i++)
+        vetor[i]=i;
+        cout << vetor[i] << " ";
+        if(vetor[i]%2==0 && vetor[i]%3==0)
         {
-            cout << "Insira o " << (i+1) << " do vetor:";
-            cin >> v[i];
+            divisivel++;
         }
-        //b
-
-        int primeiros = n/2;
-        float media = 0;
-        for (int i =0 ; i <= primeiros; i++)
-        {
-            media += v[i];
-        }
-        cout << "\n A média dos números inferiores:" << (media/primeiros) << "\n";
-
-        int cont = 0;
-        //c 
-        for(int i = primeiros; i < n; i++)
-        {
-            if(v[i]%5==0 && v[i]%2!=0)
-            {
-                cont++;
-            }
-        }
-        cout << "\n Divisiveis por 5 e não por 2:" << cont << "\n";
-
     }
-    else
-    {
-        cout << "Número inválido";
-    }
-
- 
-
-    
+    cout << "\n" << divisivel << " números são divisivel por 3 e são pares ao mesmo tempo\n";
     return 0;
 }

@@ -1,85 +1,52 @@
-# Lista de exercícios - 1
+# Lista de exercícios - 2
 
-Exercícios de fixação
+1. Implemente um programa que:
+a) Declare um vetor de inteiros com 12 posições.
+b) A primeira, terceira e décima posições do vetor devem receber o valor 108.
+c) A segunda posição deve receber o valor da primeira posição menos 8. E a
+quarta posição deve receber o valor da terceira posição mais 6.
+d) A posições de índice par a partir da quinta posição devem receber, na ordem: 11,
+32, 33 e 87.
+e) As posição 5 deve guardar 5 mais 3 vezes o valor da sétima posição. A posição 7
+deve guardar este valor mais 10.
+f) O valor 72 deve ser inserido na posição dada pelo valor da quinta posição.
+g) A posição 4 recebe o valor da oitava posição.
+h) Troque os valores da sexta e décima primeira posições.
+i) Troque os valores das posições 0 e 8.
+j) Escreva todas as posições do vetor de trás para frente usando o casting para
+caractere e observe o resultado.
 
-1. Implemente um programa que recebe 10 números reais e calcula o
-quadrado deles.
+Item j (RESPOSTA)
+for(int i=11; i>=0; i++){
+cout << char(v[i]);
+}
 
-2. Implemente um programa que faz uma contagem regressiva de 60 a 20.
-
-3. Implemente um programa que imprima os números de 300 a 400 (inclusive)
-que são múltiplos de 8.
-
-4. Modifique o programa da questão 1 de maneira que ao invés de 10
-números, o programa calcule e imprima o quadrado de N números, em que N é
-um número inteiro positivo dado pelo usuário.
-
-5. Implemente um programa que recebe um número inteiro N entre 1 e 9 e escreve
-a tabuada desse número no padrão do exemplo a seguir.
-```
- Para N = 4:
-4 x 1 = 4
-4 x 2 = 8
-4 x 3 = 12
-.
-4 x 9 = 36
-```
-
-6. Implemente um programa que recebe um valor inteiro positivo U. Em
-seguida o programa deve escrever os termos da sequência abaixo,
-iniciando do primeiro termo até o U-ésimo termo.
+2. Implemente um programa que recebe do usuário um vetor de inteiros. Em seguida o
+programa deve receber um número natural N entre 0 e 9 e determinar em quais posições do
+vetor N ocorre.
 
 ```
-S=(1,1/2,1/4,1/6,1/8,...)
+Exemplo
+Entrada: V = [2 , 4, 5, 1, 2, 3, 2, 6] N=2
+Saída: Posições 0 4 6
 ```
 
-7. Implemente um programa que recebe um valor natural não-nulo N e escreve na
-tela um quadrado N x N formado por asteriscos ( * ). Para N = 3, por exemplo, o
-programa deve exibir:
-```
-* * *
-* * *
-* * *
-```
-***
-
-Exercícios complementares
-
-8. Implemente um programa que recebe dois números inteiros, N e M,
-repetidas vezes. Para cada vez que o programa receber os dois números, ele
-deve fazer uma contagem de M até N (inclusive). O programa deve encerrar
-quando os valores informados forem iguais entre si. Note que N não é
-necessariamente maior do que M.
-
-9. Implemente um programa que recebe um valor inteiro positivo N e escreve
-todos os divisores de N.
-Exercícios avançados
-10.Implemente um programa que recebe um número positivo N e escreve os N
-primeiros termos da sequência de fibonacci. A sequência de Fibonacci tem seus
-dois primeiros termos iguais a 1. A partir do terceiro, cada termo é igual a soma
-dos dois termos anteriores a ele. Ou seja: o quinto termo é igual a soma do
-quarto e terceiro termos. Os 10 primeiros termos da sequência de Fibonacci são:
+3. Implemente um programa que recebe do usuário um vetor de inteiros. Em seguida o
+programa deve verificar quantas vezes o elemento é exatamente igual ao índice da posição em
+que ele se encontra.
 
 ```
-1 1 2 3 5 8 13 21 34 55.
+Exemplo
+Entrada: V = [0 , 4, 5, 3, 2, 5, 2, 6]
+Saída: 3
 ```
 
-11. Você foi convidado pela Federação Potiguar de Futebol para desenvolver um novo
-software para contabilizar as estatísticas do campeonato estadual. Inicialmente, para
-testar seus conhecimentos, a federação local solicitou que você desenvolvesse um
-programa para calcular quantos pontos um time fez no campeonato, sabendo que uma
-vitória rende 3 pontos; um empate 1, ponto; e uma derrota, 0 pontos.
-    **Entrada:** O número n de partidas do campeonato, seguido de n pares de números
-    inteiros não-negativos (gols a favor e gols contra), representando os resultados das
-    n partidas.
-    **Saída:** O total de pontos que o time fez.
+4. Implemente um programa que recebe um número positivo ímpar N (N >= 3) referente a
+quantidade de elementos de um vetor de inteiros. Em seguida o programa deve receber o
+vetor, calcular e imprimir:
 
-**Exemplo:**
-```
-Entrada  Saída:
-4          7
-3          1
-1          3
-0          0
-2          0
-```
+ a) O produto dos números que estão na primeira posição, na posição do meio e na última
+posição do vetor.
+ b) A média dos números que estão em posições inferiores à posição do meio do vetor.
+ c) Quantos dos números que estão em posições superiores à posição do meio do vetor são
+divisíveis por 5 mas não por 2.
