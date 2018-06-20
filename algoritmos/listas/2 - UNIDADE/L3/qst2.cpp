@@ -1,33 +1,22 @@
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
 int main ()
 {
-    int tamanho;
-    cout << "Insira o tamanho do seu vetor:";
-    cin >> tamanho;
-    int v[tamanho];
+    int v[3];
+    int v2[3];
 
-    for(int i = 0 ; i < tamanho; i++)
+    for(int i = 0 ; i < 3; i++)
     {
-        cout << "Insira o " << (i+1) << " número:";
+        cout << "Insira a coordenada " << (i+1) << " do 1º vetor:";
         cin >> v[i];
-    }
-
-    int tamanho2;
-    cout << "Insira o tamanho do seu 2° vetor:";
-    cin >> tamanho2;
-    int v2[tamanho2];
-
-    for(int i = 0 ; i < tamanho2; i++)
-    {
-        cout << "Insira o " << (i+1) << " número:";
+        cout << "\nInsira a coordenada " << (i+1) << " do 2º vetor:";
         cin >> v2[i];
     }
 
-
-    //calculando a distância
+    float distancia = (pow(2,v[0]-v2[0]));
 
     
     
