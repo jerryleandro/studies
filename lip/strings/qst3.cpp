@@ -3,12 +3,14 @@
 #define MAX 100
 using namespace std;
 
+
+int contacaracter(char busca[], char string[]);
+
 int main ()
 {
     char s [100];
     char busca [1];
 
-    int cont = 0 ;
 
     cout << "Digite um caractere:";
     cin.getline(busca, MAX);
@@ -17,16 +19,25 @@ int main ()
     
     cin.getline(s, MAX);
 
-    for(int i = 0 ; i < strlen(s) ; i++)
+   
+    
+    cout << "\n O cractere '" << busca[0] << "' aparece " << contacaracter(busca, s) << " vez(es) na string '" << s << "' " << endl ; 
+
+
+    return 0;
+}
+
+int contacaracter(char busca[], char string[])
+{
+    int cont = 0 ;
+
+     for(int i = 0 ; i < strlen(string) ; i++)
     {
-        if(busca[0]==s[i])
+        if(busca[0]==string[i])
         {
             cont++;
         }
     }
-    
-    cout << "\n O cractere '" << busca[0] << "' aparece " << cont << " vez(es) na string '" << s << "' " << endl ; 
 
-
-    return 0;
+    return cont;
 }
