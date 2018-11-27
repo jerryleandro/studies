@@ -4,9 +4,6 @@
 
 using namespace std;
 
-Motorista exibeCadastro (Motorista motorista[]);
-Motorista geraAvisoData (Motorista motorista[] , int mes , int ano);
-
 struct Data{
     int dia, mes, ano;
 };
@@ -20,17 +17,23 @@ struct Motorista
     Data validade;
 };
 
+void exibeCadastro (Motorista pessoa[]);
+
+void geraAvisoData (Motorista motorista[] , int mes , int ano);
 
 int main ()
 {
     Motorista pessoa[2];
+    int mes_consulta = 0 ,  ano_consulta = 0;
+
 
     cout << "\n==== CADATRO DE MOTORISTA\n";
-    
+
     for(int i = 0 ; i < 2; i++)
     {
         cout << "Nome: " ;
-        cin >> pessoa[i].nome;
+        cin.ignore();
+        cin.getline(pessoa[i].nome, MAX);
         cout << "CPF: " ;
         cin >> pessoa[i].cpf;
         cout << "Registro: " ;
@@ -49,31 +52,47 @@ int main ()
         cin >> pessoa[i].validade.mes;
         cout  << "\n Ano Vencimento";
         cin >> pessoa[i].validade.ano;
+
     }
 
     //EXIBINDO OS DADOS
-
     exibeCadastro(pessoa);
 
+    //GERANDO O AVISO
+
+    cout << "\n Insira o mes para consulta: ";
+    cin >> mes_consulta;
+    cout << "\n Insira o ano para consulta:";
+    cin >> ano_consulta;
+
+    geraAvisoData(pessoa ,mes_consulta , ano_consulta);
+
     return 0;
-  
+
 }
 
-Motorista exibeCadastro (Motorista motorista[])
+void exibeCadastro (Motorista pessoa[])
 {
     cout << "\n";
 
     for(int i = 0 ; i < 2; i++)
     {
-        cout << motorista[i].nome << "/" << motorista[i].cpf <<"/Nasc " 
-        << motorista[i].nascimento.dia << "." << motorista[i].nascimento.mes << "." << motorista[i].nascimento.ano << "/Reg "
-        <<  motorista[i].registro << "/Val " << motorista[i].validade.dia << "." << motorista[i].validade.mes << "." << motorista[i].validade.ano << endl;
+        cout << pessoa[i].nome << "/" << pessoa[i].cpf <<"/Nasc "
+        << pessoa[i].nascimento.dia << "." << pessoa[i].nascimento.mes << "." << pessoa[i].nascimento.ano << "/Reg "
+        <<  pessoa[i].registro << "/Val " << pessoa[i].validade.dia << "." << pessoa[i].validade.mes << "." << pessoa[i].validade.ano << endl;
+        cout << "\n";
     }
 }
 
-Motorista geraAvisoData (Motorista motorista , int mes , int ano)
+void geraAvisoData (Motorista pessoa[] , int mes_consulta , int ano_consulta)
 {
-   
+    for(int i = 0 ; i < 2; i++)
+    {
+        if(pessoa[i].validade.mes == mes_consulta &&  pessoa[i].validade.ano == ano_consulta)
+        {
+            cout << "\n" << pessoa[i].nome << " - Val " << pessoa[i].validade.dia << "." << pessoa[i].validade.mes << "." << pessoa[i].validade.ano << endl;
+        }
+    }
 }
 
 
