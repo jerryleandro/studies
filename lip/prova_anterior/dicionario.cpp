@@ -47,14 +47,20 @@ int main()
 
 Dicionario adicionar (Dicionario dic[])
 {
+  
     for (int i = 0 ; i < MAX; i++)
     {
-        cout << "\nInsira a palavra (EN):";
-        cin.getline(dic[i].ingles, MAX);
-        cout << "\nInsira a mesma palavra (PTBR): ";
-        cin.getline(dic[i].portugues, MAX);
-        i = 100;
+        //verificando uma posição vazia no vetor
+        if(strlen(dic[i].portugues) == 0)
+        {
+            cout << "\nInsira a palavra (EN):";
+            cin.getline(dic[i].ingles, MAX);
+            cout << "\nInsira a mesma palavra (PTBR): ";
+            cin.getline(dic[i].portugues, MAX);
+            i = 100;
+        }
     }
+   
 }
 
 Dicionario buscar_en (Dicionario dic[])
