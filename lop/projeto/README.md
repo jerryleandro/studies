@@ -1,5 +1,5 @@
 # Torre de Hanói
-<p align="center"><img src="https://github.com/jilcimar/studies/blob/master/algoritmos/projeto/imagens/intro.png" width="350px"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/jilcimar/studies/master/lop/projeto/imagens/intro.png" width="350px"></p>
 
 
 
@@ -17,4 +17,4 @@ Mover todos os números para o pino da direita.
 Movendo os números de acordo com as coordenadas inseridas, você deve mover um número de cada vez, sendo que um número maior nunca pode ficar em cima de um número menor.
 
 # Demonstração do jogo
-![demo](https://github.com/jilcimar/studies/blob/master/algoritmos/projeto/imagens/demo_jogo.gif)
+![demo](https://raw.githubusercontent.com/jilcimar/studies/master/lop/projeto/imagens/demo_jogo.gif)
