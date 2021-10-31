@@ -1,0 +1,5 @@
+Questão 6:
+
+A unica expressão que referencia o valor do terceiro elemento do vetor é a expressão:
+
+*(pulo +2)

@@ -1,0 +1,8 @@
+O resultado da expressão:
+  p == &i;  	      é 1.
+O resultado da expressão:
+  *p - *q;  	      é -2.
+O resultado da expressão:
+  **&p;     	      é 3.
+O resultado da expressão:
+  3 - *p/(*q) + 7;   é 10.

@@ -1,0 +1,9 @@
+Questão 7:
+
+A expressão P= Mat+1 é valida pois ela recebe o endereço de Mat+1;
+
+Já a Expressão P = Mat++ não é valida, pois ela so recebe o endereço e não o incremento do valor;
+
+A expressão P = ++Mat é semelhante a expressão acima onde só se recebe o endereço e não é possivel fazer o incremento no valor;
+
+Já na expressão x = (*mat)++ é valida pois é possivel fazer o incremento, já que se trata de valor quando é usado o * ;  
